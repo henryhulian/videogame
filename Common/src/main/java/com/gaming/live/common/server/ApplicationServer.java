@@ -8,10 +8,13 @@ import io.undertow.server.handlers.PathHandler;
 import io.undertow.server.handlers.resource.FileResourceManager;
 import io.undertow.server.handlers.resource.ResourceHandler;
 import io.undertow.util.HttpString;
+
 import java.io.File;
 import java.util.Properties;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.corundumstudio.socketio.AckRequest;
 import com.corundumstudio.socketio.Configuration;
 import com.corundumstudio.socketio.SocketIOClient;
@@ -113,20 +116,24 @@ public class ApplicationServer<RQ extends ApplicationRequest,RP extends Applicat
                     	exchange.getResponseHeaders().add(new HttpString("Access-Control-Allow-Origin"), "*");
                     	
                     	exchange.startBlocking();
-                		//解析JSON
-                    	RQ request = mapper.readValue(exchange.getInputStream(), requestClass);
-                		//获取token
-                    	if(exchange.getRequestCookies().get(TokenUtil.TOKEN_COOKIE_NMAE)!=null){
-                    		request.setToken(exchange.getRequestCookies().get(TokenUtil.TOKEN_COOKIE_NMAE).getValue());
-                    	}
-                    	//派发事件
-                    	RP response = dispatcher.dispatcher(request);
-                    	//检查设置TOKEN
-                    	if(response.getToken()!=null){
-                    		exchange.getResponseCookies().put(TokenUtil.TOKEN_COOKIE_NMAE, new CookieImpl(TokenUtil.TOKEN_COOKIE_NMAE, response.getToken()));
-        				}
-                    	//返回结果
-                    	exchange.getOutputStream().write(mapper.writeValueAsBytes(response));
+                		try {
+							//解析JSON
+							RQ request = mapper.readValue(exchange.getInputStream(), requestClass);
+							//获取token
+							if(exchange.getRequestCookies().get(TokenUtil.TOKEN_COOKIE_NMAE)!=null){
+								request.setToken(exchange.getRequestCookies().get(TokenUtil.TOKEN_COOKIE_NMAE).getValue());
+							}
+							//派发事件
+							RP response = dispatcher.dispatcher(request);
+							//检查设置TOKEN
+							if(response.getToken()!=null){
+								exchange.getResponseCookies().put(TokenUtil.TOKEN_COOKIE_NMAE, new CookieImpl(TokenUtil.TOKEN_COOKIE_NMAE, response.getToken()));
+							}
+							//返回结果
+							exchange.getOutputStream().write(mapper.writeValueAsBytes(response));
+						} catch (Exception e) {
+							logger.error("SERVER ERROR",e);
+						}
                     	exchange.endExchange();
                     }
                 }).addPrefixPath(properties.getProperty("server.context.path.static","static"), new ResourceHandler(new FileResourceManager(new File(properties.getProperty("server.context.path.static","static")), 10240)))).build();

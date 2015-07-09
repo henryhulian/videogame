@@ -14,7 +14,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.7</java.version>
+		<java.version>1.8</java.version>
 		<netty.socketio.version>1.7.7</netty.socketio.version>
 		<undertow.verstion>1.2.0.Beta10</undertow.verstion>
 		<commons.dbutils.version>1.6</commons.dbutils.version>

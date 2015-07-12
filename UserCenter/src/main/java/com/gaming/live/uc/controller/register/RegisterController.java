@@ -4,7 +4,7 @@ import org.apache.commons.lang.StringUtils;
 
 import com.gaming.live.uc.boundary.Request;
 import com.gaming.live.uc.boundary.Response;
-import com.gaming.live.uc.usecase.RegisterService;
+import com.gaming.live.uc.service.RegisterService;
 import com.google.common.cache.Cache;
 
 public class RegisterController{

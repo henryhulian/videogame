@@ -1,13 +1,14 @@
-package com.gaming.live.uc.usecase.impl;
+package com.gaming.live.uc.service.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.gaming.live.common.transaction.TransactionManager;
 import com.gaming.live.common.utils.DigestUtil;
 import com.gaming.live.uc.boundary.Response;
 import com.gaming.live.uc.dao.UserDao;
 import com.gaming.live.uc.entity.User;
-import com.gaming.live.uc.usecase.RegisterService;
+import com.gaming.live.uc.service.RegisterService;
 
 public class RegisterServiceImpl implements RegisterService{
 	

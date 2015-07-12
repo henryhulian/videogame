@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import com.agming.live.uc.test.ApplicationInit;
 import com.gaming.live.uc.boundary.Response;
 import com.gaming.live.uc.entity.User;
-import com.gaming.live.uc.usecase.RegisterService;
+import com.gaming.live.uc.service.RegisterService;
 
 public class RegisterServiceTest {
 

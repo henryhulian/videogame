@@ -1,8 +1,9 @@
-package com.gaming.live.uc.controller.balance;
+package com.gaming.live.financial.controller;
 
-import com.gaming.live.uc.boundary.Request;
-import com.gaming.live.uc.boundary.Response;
-import com.gaming.live.uc.service.BalanceService;
+import com.gaming.live.financial.boundary.Request;
+import com.gaming.live.financial.boundary.Response;
+import com.gaming.live.financial.service.BalanceService;
+
 
 public class BalanceController {
 

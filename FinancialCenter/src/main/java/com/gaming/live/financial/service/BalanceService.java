@@ -1,4 +1,4 @@
-package com.gaming.live.uc.usecase;
+package com.gaming.live.financial.service;
 
 import java.math.BigDecimal;
 

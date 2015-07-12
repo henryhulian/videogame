@@ -20,7 +20,7 @@ import com.gaming.live.financial.dao.WalletDao;
 public class WalletDaoTest {
 	
 	private WalletDao walletDao = ApplicationInit.getInstance().getApplicationContext().getWalletDao();
-	private TransactionManager transactionManager = ApplicationInit.getInstance().getApplicationContext().getTransactionManager();
+	private TransactionManager transactionManager = ApplicationInit.getInstance().getApplicationContext().getTransactionManagerDataCenter();
 
 	@Test(threadPoolSize=100,invocationCount=10,timeOut=3000)
 	public void test(){

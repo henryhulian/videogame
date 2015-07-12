@@ -11,7 +11,7 @@ import com.gaming.live.common.utils.TokenUtil;
 import com.gaming.live.uc.boundary.Request;
 import com.gaming.live.uc.boundary.Response;
 import com.gaming.live.uc.entity.User;
-import com.gaming.live.uc.usecase.LoginService;
+import com.gaming.live.uc.service.LoginService;
 
 public class AuthenticationController {
 	

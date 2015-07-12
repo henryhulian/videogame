@@ -1,12 +1,11 @@
-package com.gaming.live.uc.usecase.impl;
+package com.gaming.live.financial.service.impl;
 
 import java.math.BigDecimal;
 
 import com.gaming.live.common.transaction.TransactionManager;
-import com.gaming.live.uc.dao.WalletDao;
-import com.gaming.live.uc.usecase.BalanceService;
+import com.gaming.live.financial.dao.WalletDao;
 
-public class BalanceServiceImpl implements BalanceService {
+public class BalanceServiceImpl implements com.gaming.live.financial.service.BalanceService {
 	
 	private TransactionManager transactionManager;
 	private WalletDao walletDao;

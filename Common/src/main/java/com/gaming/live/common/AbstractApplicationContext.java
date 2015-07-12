@@ -26,7 +26,7 @@ import com.google.common.cache.CacheBuilder;
 import com.jolbox.bonecp.BoneCPConfig;
 import com.jolbox.bonecp.BoneCPDataSource;
 
-public class AbstractApplicationContext {
+abstract public class  AbstractApplicationContext {
 
 	protected Properties properties;
 	protected DataSource dataSource;
